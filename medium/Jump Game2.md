@@ -18,6 +18,7 @@ My solution:
     }
 ////////////////////////////////////////
 Renjia's solution:
+//This solution cannot hold the situation that the man cannot jump to the end!
 public int jump(int[] A) {
     int steps = 0;
     int reach = 0;
