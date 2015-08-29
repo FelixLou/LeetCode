@@ -24,6 +24,9 @@ public int jump(int[] A) {
     int reach = 0;
     int max = 0;
     for(int i=0; i<A.length-1; i++) {
+        if(i > reach){
+            return Integer.MAX_VALUE;
+        }
         max = Math.max(max, i+A[i]);
         if( i == reach ) {
             steps++;
