@@ -78,7 +78,7 @@ Renjia's solution:
             if (i1.start != i2.start) {
                 return i1.start - i2.start;
             }
-            return i1.end - i2.end;
+            return i1.end - i2.end;        ///////////////////////////////////聪明，考虑周到，虽然在此题中无所谓
         }
     });
     ListIterator<Interval> it = intervals.listIterator();
