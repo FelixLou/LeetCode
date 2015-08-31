@@ -51,63 +51,39 @@ My solution:
         return true;  
     }
     //////////////////////////////////////////////////////////////
-    Renjia's solution:
-      public List<String> anagrams(String[] strs) {
-        ArrayList<String> result = new ArrayList<String>();
-        HashMap<String,Integer> anacheck = new HashMap<String,Integer>();
-        String temp = "";
-        int index = 0;
-        for (String s : strs) {
-                temp = sortstring(s);
-                if (!anacheck.containsKey(temp)) {
-                    anacheck.put(temp,index);
-                }else {
-                    int i = anacheck.get(temp);
-                    if (i != -1) {
-                        result.add(strs[i]);
-                        anacheck.put(temp, -1);
-                    }
-                    result.add(s);
-                }
-            index++;
-        }
-        return result;
-    }
+Renjia's solution:
+	public static List<List<String>> groupAnagrams(String[] strs) {
 
-     public String sortstring(String s) {
-            char[] c= s.toCharArray();
-            Arrays.sort(c);
-            return new String(c);
-     }
-     /////////////////////////////////////
-      public static List<String> anagrams(String[] strs) {
+		List<List<String>> result = new ArrayList<List<String>>();
+		HashMap<String, List<String>> hash = new HashMap<String, List<String>>();
 
-        HashMap<String, List<String>> hashMap= new HashMap<String, List<String>>();
-        List<String> anagramStrings = new ArrayList<String>();
+		if (strs.length == 0)
+			return null;
 
-        for (String str: strs) {
-            char[] charArray = new char[str.length()];
-            charArray = str.replaceAll("\\s+", "").toCharArray();
-            Arrays.sort(charArray);
+		for (String s : strs) {
 
-            String mapKey = String.copyValueOf(charArray);
+			char[] ch = s.toCharArray();
+			Arrays.sort(ch);
+			String s1 = String.valueOf(ch);
 
-            if (hashMap.containsKey(mapKey)) {
-                hashMap.get(mapKey).add(str);
-            } else {
-                List<String> stringList = new ArrayList<String>();
-                stringList.add(str);
-                hashMap.put(mapKey, stringList);
-            }
-        }
+			if (hash.containsKey(s1)) {
 
-        for(Map.Entry<String, List<String>> entry: hashMap.entrySet()) {
-            List<String> value = entry.getValue();
+				hash.get(s1).add(s);
+			}
 
-            if (value.size() > 1) {
-                anagramStrings.addAll(value);
-            }   
-        }
-        return anagramStrings;
-    }
+			else {
+
+				List<String> le = new ArrayList<String>();
+				le.add(s);
+				hash.put(s1, le);
+			}
+		}
+
+		for (Map.Entry<String, List<String>> entry : hash.entrySet()) {
+
+			Collections.sort(entry.getValue());
+			result.add(entry.getValue());
+		}
+		return result;
+	}
 ```
