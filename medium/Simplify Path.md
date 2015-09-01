@@ -36,8 +36,9 @@ My solution:
 	    }
 //////////////////////////////////////////////
 Renjia's solution:
+直接用stack来存！！！
 public String simplifyPath(String path) {
-    Deque<String> stack = new LinkedList<>();
+    Deque<String> stack = new LinkedList<>();   get 新技能！ stack 的itertor有问题， obselete了， 用Deque吧
     Set<String> skip = new HashSet<>(Arrays.asList("..",".",""));
     for (String dir : path.split("/")) {
         if (dir.equals("..") && !stack.isEmpty()) stack.pop();
