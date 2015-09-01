@@ -10,7 +10,7 @@ Question: https://leetcode.com/problems/basic-calculator-ii/
             if (Character.isDigit(s.charAt(i))){
                 num = 10 * num + s.charAt(i) - '0';
             }
-            if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == s.length() - 1){
+            if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == s.length() - 1){// ||后面的太容易忽略了
                 if (sign == '+'){
                     stack.push(num);
                 }
