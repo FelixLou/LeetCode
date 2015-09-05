@@ -12,7 +12,7 @@ public int calculate(String s) {
         if(Character.isDigit(c)){
             number = 10 * number + (int)(c - '0');
         }else if(c == '+'){
-            result += sign * number;
+            result += sign * number;                   // 聪明，把正负号转换为正负一
             number = 0;
             sign = 1;
         }else if(c == '-'){
@@ -21,7 +21,7 @@ public int calculate(String s) {
             sign = -1;
         }else if(c == '('){
             //we push the result first, then sign;
-            stack.push(result);
+            stack.push(result);                       //聪明，把括号之前的结果和符号存起来
             stack.push(sign);
             //reset the sign and result for the value in the parenthesis
             sign = 1;   
