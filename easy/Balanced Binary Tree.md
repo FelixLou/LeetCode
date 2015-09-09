@@ -61,4 +61,21 @@ int dfsHeight (TreeNode *root) {
         return dfsHeight (root) != -1;
     }
 };
+
+Java：
+    public boolean isBalanced(TreeNode root) {
+        return dfsTree(root) != -1;
+        
+    }   
+    private int dfsTree(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = dfsTree(root.left);
+        int rightHeight = dfsTree(root.right);
+        if(leftHeight == -1 || rightHeight == -1 || Math.abs(leftHeight- rightHeight) > 1){
+            return -1;            //get 新技能！用-1表示false！
+        }
+        return Math.max (leftHeight, rightHeight) + 1;
+    }
 ```
