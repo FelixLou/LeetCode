@@ -1,5 +1,34 @@
-Question: Convert Sorted List to Binary Search Tree
+Question: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
 ```
+recursive:
+    public TreeNode sortedListToBST(ListNode head) {
+        if(head == null){
+            return null;
+        }
+        if(head.next == null){
+            return new TreeNode(head.val);
+        }
+        ListNode tmp = findMid(head);
+        ListNode mid = tmp.next;
+        TreeNode root = new TreeNode(mid.val);
+        tmp.next = null;
+        root.right = sortedListToBST(mid.next);
+        root.left = sortedListToBST(head);           
+        return root;
+        
+    }
+    private ListNode findMid(ListNode head){
+        ListNode fast = head.next;
+        ListNode slow = head;
+        ListNode tmp = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            tmp = slow;
+            slow = slow.next;
+        }
+        return tmp;
+    }
+/////////////////////////////
   public TreeNode sortedListToBST(ListNode head) {
     if(head==null)
         return null;
