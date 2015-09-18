@@ -15,7 +15,7 @@ My solution:
                 for(int k = j + 1; k < Math.min(nums.length - 1, m); k++){
                     if(k > j + 1 && nums[k] == nums[k - 1]) continue;
                     if(nums[i] + nums[j] + nums[k] + nums[m] == target){
-                        result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[m]));
+                        result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[m])); //新技能Get！
                     }
                     else if(nums[i] + nums[j] + nums[k] + nums[m] > target && m > k + 1){
                         m--;
