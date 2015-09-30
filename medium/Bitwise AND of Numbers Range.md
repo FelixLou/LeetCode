@@ -1,5 +1,6 @@
 Question: https://leetcode.com/problems/bitwise-and-of-numbers-range/
 ```
+My solution:
     public int rangeBitwiseAnd(int m, int n) {
         int result = 0;
         for(int i = 30; i >= 0; i--){
@@ -23,5 +24,18 @@ Question: https://leetcode.com/problems/bitwise-and-of-numbers-range/
             }
         }
         return true;
+    }
+Renjia's solution:
+    public int rangeBitwiseAnd(int m, int n) {
+        if(m == 0){
+            return 0;
+        }
+        int moveFactor = 1;
+        while(m != n){
+            m >>= 1;
+            n >>= 1;
+            moveFactor <<= 1;
+        }
+        return m * moveFactor;
     }
 ```
