@@ -26,7 +26,7 @@ Question: https://leetcode.com/problems/contains-duplicate-iii/
         if (k < 1 || t < 0) return false;
         Map<Long, Long> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            long remappedNum = (long) nums[i] - Integer.MIN_VALUE;
+            long remappedNum = (long) nums[i] - Integer.MIN_VALUE; //Hence, it will, for example, assign both -2 and +2 to //bucket 0 if the bucket size is > 2. If we want that elements having the same bucket 0 are immediately considered duplicates, //such assignment would be undesirable. 
             long bucket = remappedNum / ((long) t + 1);
             if (map.containsKey(bucket)
                     || (map.containsKey(bucket - 1) && remappedNum - map.get(bucket - 1) <= t)
