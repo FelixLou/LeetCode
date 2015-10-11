@@ -32,7 +32,7 @@ Question: https://leetcode.com/problems/contains-duplicate-iii/
                     || (map.containsKey(bucket - 1) && remappedNum - map.get(bucket - 1) <= t)
                         || (map.containsKey(bucket + 1) && map.get(bucket + 1) - remappedNum <= t))
                             return true;
-            if (map.entrySet().size() >= k) {
+            if (map.size() >= k) {
                 long lastBucket = ((long) nums[i - k] - Integer.MIN_VALUE) / ((long) t + 1);
                 map.remove(lastBucket);
             }
