@@ -19,24 +19,27 @@ public int findDuplicate(int[] nums) {
     return fast;
 }
 /////////////////////////////
-class Solution(object):
-    def findDuplicate(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        low = 1
-        high = len(nums)-1
-
-        while low < high:
-            mid = low+(high-low)/2
-            count = 0
-            for i in nums:
-                if i <= mid:
-                    count+=1
-            if count <= mid:
-                low = mid+1
-            else:
-                high = mid
-        return low
+    public int findDuplicate(int[] nums){
+        if(nums.length == 2) return nums[0];
+        int start = 1;
+        int end = nums.length - 1;
+        int mid = 0;
+        
+        while(start < end){
+            mid = start + (end - start)/2;
+            int count = 0;
+            for(int i = 0; i < nums.length; i++){
+                if(nums[i] <= mid){
+                    count++;
+                }
+            }
+            if(count <= mid){
+                start = mid + 1;
+            }
+            else{
+                end = mid;
+            }
+        }
+        return start;
+    }
 ```
