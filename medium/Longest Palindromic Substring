@@ -1,6 +1,6 @@
 Question: https://leetcode.com/problems/longest-palindromic-substring/
 ```
-My solution:  Time Limit Exceeded
+My solution:  Time Limit Exceeded(O(n^3) since used substring() is O(n))
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0){
             return "";
