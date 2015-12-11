@@ -46,6 +46,29 @@ My Solution:
         return 0;
     }
 ////////////////////////////////////////////////
+2nd code:
+    public int compareVersion(String version1, String version2) {
+        String[] v1 = version1.split("\\.");
+        String[] v2 = version2.split("\\.");
+        int maxLen = Math.max(v1.length,v2.length);
+        int i = 0;
+        while(i < maxLen){
+            int vv1 = i < v1.length? Integer.parseInt(v1[i]):0;
+            int vv2 = i < v2.length? Integer.parseInt(v2[i]):0;
+            if(vv1 > vv2){
+                return 1;
+            }
+            else if(vv1 <vv2){
+                return -1;
+            }
+            else{
+                i++;   
+            }
+            
+        }
+        return 0;
+    }
+    //////////////
 Renjia's solution:
 public int compareVersion(String version1, String version2) {
     String[] levels1 = version1.split("\\.");       //get 新技能 正则表达式
@@ -55,7 +78,7 @@ public int compareVersion(String version1, String version2) {
     for (int i=0; i<length; i++) {
         Integer v1 = i < levels1.length ? Integer.parseInt(levels1[i]) : 0; 
         Integer v2 = i < levels2.length ? Integer.parseInt(levels2[i]) : 0;
-        int compare = v1.compareTo(v2);
+        int compare = v1.compareTo(v2);             //get 新技能
         if (compare != 0) {
             return compare;
         }
